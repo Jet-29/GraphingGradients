@@ -8,5 +8,6 @@ public:
 	void runGameLoop();
 
 private:
+
 	Spyder::Engine engine{};
 };
