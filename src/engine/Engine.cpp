@@ -5,8 +5,9 @@
 namespace Spyder {
 
 	void Engine::init(EngineInitParams initParams) {
+		engineInitParams = initParams;
 		// initialization
-		window.init(initParams.w, initParams.h, initParams.title);
+		window.init(engineInitParams.w, engineInitParams.h, engineInitParams.title);
 		device.init();
 		renderer.init();
 		globalPool = DescriptorPool::Builder(device).setMaxSets(SwapChain::MAX_FRAMES_IN_FLIGHT).addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, SwapChain::MAX_FRAMES_IN_FLIGHT).build();
@@ -35,7 +36,8 @@ namespace Spyder {
 
 	void Engine::beginFrame() {
 		glfwPollEvents();
-		timeManagment.stepDeltaTime();
+		timeManagement.stepDeltaTime();
+		if (engineInitParams.printFps) fpsDisplay.update(getDeltaTime());
 	}
 
 	void Engine::endFrame() {
@@ -57,7 +59,7 @@ namespace Spyder {
 	}
 
 	float Engine::getDeltaTime() {
-		return timeManagment.getDeltaTime();
+		return timeManagement.getDeltaTime();
 	}
 
 	void Engine::close() {

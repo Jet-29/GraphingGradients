@@ -1,6 +1,8 @@
 #pragma once
 
 #include "engine/Engine.hpp"
+#include "framework/GradientLines.hpp"
+
 
 class Framework {
 public:
@@ -8,6 +10,6 @@ public:
 	void runGameLoop();
 
 private:
-
 	Spyder::Engine engine{};
+	GradientLines gradientLines;
 };

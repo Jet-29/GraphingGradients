@@ -16,13 +16,13 @@ namespace Spyder {
 		drawable = std::make_unique<Drawable>(device);
 	}
 
-	void Batch::addToBatch(std::vector<Drawable::Vertex> &newVertices) {
-		for (Drawable::Vertex &vertex : newVertices) {
+	void Batch::addToBatch(const std::vector<Drawable::Vertex> &newVertices) {
+		for (const Drawable::Vertex &vertex : newVertices) {
 			addToBatch(vertex);
 		}
 	}
 
-	void Batch::addToBatch(Drawable::Vertex &newVertex) {
+	void Batch::addToBatch(const Drawable::Vertex &newVertex) {
 		if (uniqueVertices.count(newVertex) == 0) {
 			uniqueVertices[newVertex] = static_cast<uint32_t>(vertices.size());
 			vertices.push_back(newVertex);

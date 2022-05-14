@@ -9,13 +9,14 @@
 #include "utilities/descriptors/DescriptorWriter.hpp"
 #include "engine/utilities/TimeManagment.hpp"
 #include "engine/graphics/Drawable.hpp"
+#include "engine/utilities/FpsDisplay.hpp"
 
 namespace Spyder {
 	struct EngineInitParams {
 		int w = 800;
 		int h = 800;
 		const char *title = "Spyder Engine";
-		bool useDeltaTime = true;
+		bool printFps = false;
 	};
 
 	class Engine {
@@ -40,11 +41,13 @@ namespace Spyder {
 		Batch vertexBatch{device};
 
 	private:
+		EngineInitParams engineInitParams{};
 
 		Window window{};
 		Device device{window};
 		Renderer renderer{window, device};
-		TimeManagment timeManagment{0.5f};
+		TimeManagment timeManagement{0.5f};
+		FpsDisplay fpsDisplay{5.0f, 10.0f};
 
 		// render systems
 		TriangleRenderSystem triangleRenderSystem{device};

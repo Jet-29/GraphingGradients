@@ -4,6 +4,6 @@
 class Line {
 public:
 	Line(float x, float y, float rotation, float scale);
-private:
-	std::vector<Spyer::Drawable::Vertex> sides{};
+	Spyder::Drawable::Vertex start{};
+	Spyder::Drawable::Vertex end{};
 };

@@ -3,9 +3,11 @@
 
 class GradientLines {
 public:
-	GradientLines(float width, float height, int xCount, int yCount);
+	GradientLines(int xCount, int yCount, float scale);
 
 	static float derivative(float x, float y);
+
+	[[nodiscard]] const std::vector<Spyder::Drawable::Vertex> &getAllLines() const;
 
 private:
 	std::vector<Spyder::Drawable::Vertex> allLines{};

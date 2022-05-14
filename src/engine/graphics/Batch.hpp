@@ -14,8 +14,8 @@ namespace Spyder {
 	class Batch {
 	public:
 		explicit Batch(Device &device);
-		void addToBatch(std::vector<Drawable::Vertex> &newVertices);
-		void addToBatch(Drawable::Vertex &newVertex);
+		void addToBatch(const std::vector<Drawable::Vertex> &newVertices);
+		void addToBatch(const Drawable::Vertex &newVertex);
 		void clear();
 
 		[[nodiscard]] const std::unique_ptr<Drawable> &getDrawable();
