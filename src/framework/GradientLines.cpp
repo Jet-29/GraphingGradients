@@ -24,11 +24,11 @@ GradientLines::GradientLines(int xCount, int yCount, float scale) : horizontalCo
 }
 
 float GradientLines::derivative(float x, float y) {
-//	float scaleX = 3.0f;
-//	float scaleY = 3.0f;
-//	x *= scaleX;
-//	y *= scaleY;
-	return y + x;
+	float scaleX = 5.0f;
+	float scaleY = 5.0f;
+	x *= scaleX;
+	y *= scaleY;
+	return (float)std::abs(std::fmod(x, 4) * y * x);
 }
 
 const std::vector<Spyder::Drawable::Vertex> &GradientLines::getAllLines() const {
