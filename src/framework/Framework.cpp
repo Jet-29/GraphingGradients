@@ -1,6 +1,6 @@
 #include "Framework.hpp"
 
-Framework::Framework(const int width, const int height, const char *title) : gradientLines{50, 50, 0.05f} {
+Framework::Framework(const int width, const int height, const char *title) : gradientLines{30, 30, 0.05f} {
 	Spyder::EngineInitParams initParams{width, height, title, true};
 	engine.init(initParams);
 	engine.getWindow().setBackground({0.01f, 0.01f, 0.01f, 1.0f});
